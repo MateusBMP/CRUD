@@ -2,9 +2,9 @@
 # Edit at https://www.gitignore.io/?templates=windows,composer,visualstudiocode more some edits
 
 ### Composer ###
-/src/composer.phar
+/composer.phar
 /src/vendor/
-/src/composer.lock
+/composer.lock
 
 ### VisualStudioCode ###
 .vscode/*

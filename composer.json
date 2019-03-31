@@ -1,10 +1,7 @@
 {
-    "name": "CRUD",
+    "name": "crud/crud",
     "description": "Classe CRUD",
     "type": "class",
-    "require-dev" : {
-        "phpunit/phpunit": "^6.3"
-    },
     "authors": [
         {
             "name": "Mateus Pereira",
@@ -15,10 +12,16 @@
             "email": "jfl2@ic.ufal.br"
         }
     ],
+    "config": {
+        "vendor-dir": "src/vendor/"
+    },
     "autoload": {
         "psr-4": {
             "Apteles\\Acme\\": "src/"
         }
     },
-    "require": {}
+    "require": {},
+    "require-dev" : {
+        "phpunit/phpunit": "^6.3"
+    }
 }
