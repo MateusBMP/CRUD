@@ -1,6 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
+use Crud\Crud;
 require_once(__DIR__.'\..\src\class\crud.php');
 
 class UnitTest extends TestCase {

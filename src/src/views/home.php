@@ -3,6 +3,7 @@
 echo "START<br><br>";
 
 require_once(__DIR__.'\..\class\crud.php');
+use Crud\Crud;
 
 $crud = new Crud;
 $nome = "tabela_teste";
