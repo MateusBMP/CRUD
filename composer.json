@@ -1,7 +1,7 @@
 {
     "name": "mateusbmp/crud",
-    "description": "Classe CRUD",
-    "type": "class",
+    "description": "Biblioteca CRUD em php",
+    "type": "library",
     "authors": [
         {
             "name": "Mateus Pereira",
