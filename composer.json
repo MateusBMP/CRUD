@@ -16,9 +16,7 @@
         "vendor-dir": "src/vendor/"
     },
     "autoload": {
-        "psr-4": {
-            "Apteles\\Acme\\": "src/"
-        }
+        "psr-4": { "Crud\\": "src/src/class/" }
     },
     "require": {
         "php": "^7.2"
