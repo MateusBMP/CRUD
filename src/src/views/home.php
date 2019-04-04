@@ -2,7 +2,8 @@
 
 echo "START<br><br>";
 
-require_once(__DIR__.'\..\class\crud.php');
+require_once __DIR__ . '/../../vendor/autoload.php';
+use Crud\Crud;
 
 $crud = new Crud;
 $nome = "tabela_teste";
