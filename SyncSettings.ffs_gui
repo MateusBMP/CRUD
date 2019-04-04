@@ -13,7 +13,10 @@
     </Synchronize>
     <Filter>
         <Include>
-            <Item>*</Item>
+            <Item>composer.json</Item>
+            <Item>composer.lock</Item>
+            <Item>src/src</Item>
+            <Item>src/vendor</Item>
         </Include>
         <Exclude>
             <Item>\System Volume Information\</Item>
@@ -21,9 +24,7 @@
             <Item>\RECYCLE?\</Item>
             <Item>*\desktop.ini</Item>
             <Item>*\thumbs.db</Item>
-            <Item>tests\</Item>
-            <Item>phpunit.xml</Item>
-            <Item>test.bat</Item>
+            <Item/>
         </Exclude>
         <TimeSpan Type="None">0</TimeSpan>
         <SizeMin Unit="None">0</SizeMin>
@@ -31,7 +32,7 @@
     </Filter>
     <FolderPairs>
         <Pair>
-            <Left>C:\dev\crud\src\</Left>
+            <Left>C:\dev\crud\</Left>
             <Right>C:\xampp\htdocs\crud</Right>
             <Compare>
                 <Variant>TimeAndSize</Variant>

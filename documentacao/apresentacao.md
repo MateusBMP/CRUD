@@ -12,7 +12,7 @@ O projeto possui testes simples, usando o PHPUnit, que podem ser encontrados no 
 
 Usando o [XAMPP](https://www.apachefriends.org) e posicionando a pasta _\\src\\src\\_ do projeto na pasta htdocs, pode-se acessar a pagina inicial pelo endereco:
 
-- <http://localhost/crud/views/home.php>
+- <http://localhost/crud/src/src/views/home.php>
 
 Como o projeto e baseado em uma classe e em testes de suas funcoes, sua pagina inicial serve apenas de interacao para todo o projeto. Ou seja, a pagina inicial independe ao bom funcionamento da aplicacao.
 
