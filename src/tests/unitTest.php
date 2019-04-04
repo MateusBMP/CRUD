@@ -1,7 +1,8 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-require_once(__DIR__.'\..\src\class\crud.php');
+require_once __DIR__ . '/../vendor/autoload.php';
+use Crud\Crud;
 
 class UnitTest extends TestCase {
     // Variaveis
