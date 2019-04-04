@@ -6,11 +6,11 @@ use Crud\Crud;
 
 class UnitTest extends TestCase {
     // Variaveis
-        private $tipo_banco = 'pgsql';
-        private $nome_banco = 'postgres';
+        private $tipo_banco = 'mysql';
+        private $nome_banco = 'test';
         private $servidor = '127.0.0.1';
-        private $usuario = 'postgres';
-        private $senha = 'admin';
+        private $usuario = 'localhost';
+        private $senha = '';
 
     // Funcoes basicas
         private function iniciaCrud() {
@@ -34,9 +34,9 @@ class UnitTest extends TestCase {
         public function teste_criar() {
             $nome = "tabela_teste";
             $parametros = [
-                ["id", "serial", '', ["chave primaria"]],
-                ["nome", "texto", "", ["nao-nulo"]],
-                ["email", "texto", ""]
+                ["id", "inteiro", "6", ["chave primaria", "nao-nulo", "auto-incremento"]],
+                ["nome", "texto", "50", ["nao-nulo"]],
+                ["email", "texto", "30"]
             ];
             $crud = $this->iniciaCrud();
             $retorno = $crud->criar($nome, $parametros);
@@ -69,7 +69,7 @@ class UnitTest extends TestCase {
             $nome = "tabela_teste";
             $colunas = ["nome", "email"];
             $saida_esperada = [
-                ['nome' => "pessoa qualquer", 'email' => "pessoa_qualquer@email.com"]
+                ['0' => "pessoa qualquer", '1' => "pessoa_qualquer@email.com"]
             ];
             $crud = $this->iniciaCrud();
             $retorno = $crud->listar($nome, $colunas);
