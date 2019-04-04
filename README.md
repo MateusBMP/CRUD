@@ -8,6 +8,25 @@ CRUD em PHP puro, estruturado em forma de classes. Sua estrutura permite rapida 
 
 Para mais detalhes sobre a documentacao do projeto, acesse o diretorio _\\documentacao\\_ na raiz do mesmo.
 
+## Instalacao
+
+Como a biblioteca foi desenvolvida a partir do Composer, pode-se usa-la ao requerir o seguinte no arquivo _composer.json_ no campo _require_:
+
+> "mateusbmp/crud": "^1.0"
+
+Desta forma, para chamar a classe no projeto importe a classe ``Crud\Crud``, ou seja:
+
+> ``use Crud\Crud``
+
+O mesmo usa diversos comandos de banco da dados e, por isso, necessida das seguintes bibliotecas:
+
+- mysqli
+- pdo_mysql
+- pgsql
+- pdo_pgsql
+
+Algumas podem ja pertencerem nativamente ao PHP e, desta forma, basta descomentar as linhas com o comando _extension_ presentes no _php.ini_. Para as nao existentes, baixe o pacote necessario e siga a instalacao dos mesmo no php como qualquer outro pacote, adicionando os arquivos no diretorio solicitado e adicionando-o ao arquivo _php.ini_.
+
 ## Desenvolvedores
 
 - [Mateus Pereira](https://github.com/MateusBMP)
