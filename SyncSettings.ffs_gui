@@ -21,9 +21,9 @@
             <Item>\RECYCLE?\</Item>
             <Item>*\desktop.ini</Item>
             <Item>*\thumbs.db</Item>
-            <Item>\backup</Item>
-            <Item>*.git</Item>
-            <Item>*README.md</Item>
+            <Item>tests\</Item>
+            <Item>phpunit.xml</Item>
+            <Item>test.bat</Item>
         </Exclude>
         <TimeSpan Type="None">0</TimeSpan>
         <SizeMin Unit="None">0</SizeMin>
@@ -31,7 +31,7 @@
     </Filter>
     <FolderPairs>
         <Pair>
-            <Left>C:\dev\crud\src\src</Left>
+            <Left>C:\dev\crud\src\</Left>
             <Right>C:\xampp\htdocs\crud</Right>
             <Compare>
                 <Variant>TimeAndSize</Variant>
