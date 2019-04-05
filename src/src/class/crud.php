@@ -349,6 +349,9 @@ class Crud {
         // Operacoes de banco de dados
             private function conecta($servidor, $banco, $usuario, $senha, $porta) {
                 if($this->banco == 'mysql') {
+                    if($porta != NULL) {
+                        $servidor .= ':' . $porta;
+                    }
                     $conexao = mysqli_connect($servidor, $usuario, $senha);
                     if ($conexao->connect_error) {
                         return false;

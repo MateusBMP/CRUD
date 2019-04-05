@@ -51,8 +51,6 @@ Cria parametros basicos da classe
 
 A funcao retorna um booleano, sendo **true** para funcao executada normalmente e **false** caso a conexao nao seja efetuada, o banco selecionado nao seja encontrado ou o tipo de banco sao seja permitido.
 
-Observacao para mysql: O campo **porta** nao esta implementado para esse tipo de banco de dados. Caso o parametro seja passado, ele sera ignorado.
-
 -----
 
 #### finalizar
