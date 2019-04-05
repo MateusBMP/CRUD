@@ -55,14 +55,14 @@ class Crud {
             $lista = $this->listaTabela($colunas_string, $nome, $regras_string);
             return $lista;
         }
-        public function inserir($nome, $valores, $campos = NULL) {
+        public function inserir($nome, $valores, $campos = NULL, $retorno_id = false) {
             if($campos == NULL) {
                 $campos_string = "";
             } else {
                 $campos_string = $this->formataCampos($campos);
             }
             $valores_string = $this->formataValores($valores);
-            $retorno = $this->insereTabela($nome, $campos_string, $valores_string);
+            $retorno = $this->insereTabela($nome, $campos_string, $valores_string, $retorno_id);
             return $retorno;
         }
         public function atualizar($nome, $valores, $regras = NULL, $separador = NULL){
@@ -444,11 +444,18 @@ class Crud {
                     }
                 }
             }
-            private function insereTabela($nome, $campos, $valores){
+            private function insereTabela($nome, $campos, $valores, $retorno_id = false){
                 if($this->banco == 'mysql') {
                     $comando = "INSERT INTO ".$nome." ".$campos . PHP_EOL."VALUES ".$valores.";";
-                    $retorno = mysqli_query($this->conexao, $comando);
-                    return $retorno;
+                    if(mysqli_query($this->conexao, $comando)) {
+                        if($retorno_id) {
+                            return mysql_insert_id($this->conexao);
+                        } else {
+                            return true;
+                        }
+                    } else {
+                        return false;
+                    }
                 } else if($this->banco == 'pgsql') {
                     $comando = "INSERT INTO ".$nome." ".$campos . PHP_EOL."VALUES ".$valores.";";
                     $retorno = pg_query($this->conexao, $comando);

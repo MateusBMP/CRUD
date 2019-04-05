@@ -128,7 +128,8 @@ Lista registros de uma tabela.
 
 A funcao retorna um array com arrays de linhas do banco de dados. Caso haja algum erro, retorna **false**.
 
-Observacao: Operadores tambem podem ser passados pelo seu nome literal. Desta forma, o interpretador ignorara a conversao e escrevera o nome literal.
+- _Observacao geral_:
+  - Operadores tambem podem ser passados pelo seu nome literal. Desta forma, o interpretador ignorara a conversao e escrevera o nome literal.
 
 -----
 
@@ -136,9 +137,9 @@ Observacao: Operadores tambem podem ser passados pelo seu nome literal. Desta fo
 
 Insere dados em uma tabela.
 
-> ``inserir ( string $nome, array $valores [, array $campos ] ) : bool``
+> ``inserir ( string $nome, array $valores [, array $campos, bool $retorno ] ) : mixed``
 
-**inserir** executa o comando _INSERT_ no banco de dados, inserindo os dados informados em um banco de dados tambem informado. A funcao recebe, obrigatoriamente, uma string com o nome da tabela onde os dados serao inseridos e um array de valores a serem inseridos. De forma opcional, pode-se receber um array com o nome das colunas especificas que serao recebidos os dados.
+**inserir** executa o comando _INSERT_ no banco de dados, inserindo os dados informados em um banco de dados tambem informado. A funcao recebe, obrigatoriamente, uma string com o nome da tabela onde os dados serao inseridos e um array de valores a serem inseridos. De forma opcional, pode-se receber um array com o nome das colunas especificas que serao recebidos os dados e um booleano requisitando o id da tabela inserida.
 
 - **nome**
   - String com nome da tabela a ser usada
@@ -146,8 +147,13 @@ Insere dados em uma tabela.
   - Array de strings com valores a serem inseridos na tabela
 - **campos**
   - Array de strings com nome dos campos que serao inseridos.
+- **retorno**
+  - Booleano que requisita o id da linha inserida, sendo **true** para retorno solicitado
 
-A funcao retorna um booleano, sendo **true** para completa e correta execucao da funcao e **false** caso os valores informados nao sejam capazes de serem inseridos na tabela.
+A funcao retorna um booleano, sendo **true** para completa e correta execucao da funcao e **false** caso os valores informados nao sejam capazes de serem inseridos na tabela ou, se solicitado o retorno, retorna um inteiro com o id da linha inserida ou uma string caso o tamanho do inteiro retornado seja maior que o inteiro maior possivel.
+
+- _Observacao para pgsql_:
+  - O parametro de entrada **retorno** nao esta implementado e, se passado na funcao, sera ignorado
 
 -----
 
