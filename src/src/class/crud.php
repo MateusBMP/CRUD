@@ -449,7 +449,7 @@ class Crud {
                     $comando = "INSERT INTO ".$nome." ".$campos . PHP_EOL."VALUES ".$valores.";";
                     if(mysqli_query($this->conexao, $comando)) {
                         if($retorno_id) {
-                            return mysql_insert_id($this->conexao);
+                            return mysqli_insert_id($this->conexao);
                         } else {
                             return true;
                         }
