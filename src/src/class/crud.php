@@ -55,14 +55,19 @@ class Crud {
             $lista = $this->listaTabela($colunas_string, $nome, $regras_string);
             return $lista;
         }
-        public function inserir($nome, $valores, $campos = NULL, $retorno_id = false) {
+        public function inserir($nome, $valores, $campos = NULL, $retorno_campo = NULL) {
             if($campos == NULL) {
                 $campos_string = "";
             } else {
                 $campos_string = $this->formataCampos($campos);
             }
+            if($retorno_campo == NULL) {
+                $retorno_campo_string = "";
+            } else {
+                $retorno_campo_string = $this->formataRetornoCampo($retorno_campo);
+            }
             $valores_string = $this->formataValores($valores);
-            $retorno = $this->insereTabela($nome, $campos_string, $valores_string, $retorno_id);
+            $retorno = $this->insereTabela($nome, $campos_string, $valores_string, $retorno_campo_string);
             return $retorno;
         }
         public function atualizar($nome, $valores, $regras = NULL, $separador = NULL){
@@ -262,6 +267,14 @@ class Crud {
                     return $string;
                 }
             }
+            private function formataRetornoCampo($retorno_campo) {
+                if($this->banco == 'mysql') {
+                    return true;
+                } else if($this->banco == 'pgsql') {
+                    $string = "'".$retorno_campo."'";
+                    return $string;
+                }
+            }
 
         // Interpretadores de conversao de tipos
             private function tipos($tipo) {
@@ -444,11 +457,11 @@ class Crud {
                     }
                 }
             }
-            private function insereTabela($nome, $campos, $valores, $retorno_id = false){
+            private function insereTabela($nome, $campos, $valores, $retorno_campo){
                 if($this->banco == 'mysql') {
                     $comando = "INSERT INTO ".$nome." ".$campos . PHP_EOL."VALUES ".$valores.";";
                     if(mysqli_query($this->conexao, $comando)) {
-                        if($retorno_id) {
+                        if($retorno_campo) {
                             return mysqli_insert_id($this->conexao);
                         } else {
                             return true;
@@ -457,7 +470,10 @@ class Crud {
                         return false;
                     }
                 } else if($this->banco == 'pgsql') {
-                    $comando = "INSERT INTO ".$nome." ".$campos . PHP_EOL."VALUES ".$valores.";";
+                    $comando = "INSERT INTO ".$nome." ".$campos . PHP_EOL."VALUES ".$valores;
+                    if($retorno_campo != "") {
+                        $comando .= PHP_EOL."RETURNING ".$retorno_campo;
+                    }
                     $retorno = pg_query($this->conexao, $comando);
                     if(!$retorno) {
                         return false;

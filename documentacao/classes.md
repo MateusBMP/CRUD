@@ -137,23 +137,24 @@ A funcao retorna um array com arrays de linhas do banco de dados. Caso haja algu
 
 Insere dados em uma tabela.
 
-> ``inserir ( string $nome, array $valores [, array $campos, bool $retorno ] ) : mixed``
+> ``inserir ( string $nome, array $valores [, array $campos, string $retorno ] ) : mixed``
 
-**inserir** executa o comando _INSERT_ no banco de dados, inserindo os dados informados em um banco de dados tambem informado. A funcao recebe, obrigatoriamente, uma string com o nome da tabela onde os dados serao inseridos e um array de valores a serem inseridos. De forma opcional, pode-se receber um array com o nome das colunas especificas que serao recebidos os dados e um booleano requisitando o id da tabela inserida.
+**inserir** executa o comando _INSERT_ no banco de dados, inserindo os dados informados em um banco de dados tambem informado. A funcao recebe, obrigatoriamente, uma string com o nome da tabela onde os dados serao inseridos e um array de valores a serem inseridos. De forma opcional, pode-se receber um array com o nome das colunas especificas que serao recebidos os dados e uma string com nome do campo a ser retornado apos a insercao.
 
 - **nome**
   - String com nome da tabela a ser usada
 - **valores**
   - Array de strings com valores a serem inseridos na tabela
 - **campos**
-  - Array de strings com nome dos campos que serao inseridos.
+  - Array de strings com nome dos campos que serao inseridos
 - **retorno**
-  - Booleano que requisita o id da linha inserida, sendo **true** para retorno solicitado
+  - String com nome do valor que deve ser retornado apos insercao
 
-A funcao retorna um booleano, sendo **true** para completa e correta execucao da funcao e **false** caso os valores informados nao sejam capazes de serem inseridos na tabela ou, se solicitado o retorno, retorna um inteiro com o id da linha inserida ou uma string caso o tamanho do inteiro retornado seja maior que o inteiro maior possivel.
+A funcao retorna um booleano, sendo **true** para completa e correta execucao da funcao e **false** caso os valores informados nao sejam capazes de serem inseridos na tabela ou, se solicitado o retorno, retorna o campo solicitado.
 
-- _Observacao para pgsql_:
-  - O parametro de entrada **retorno** nao esta implementado e, se passado na funcao, sera ignorado
+- _Observacao para mysql_:
+  - O parametro de entrada **retorno**, se passado, sempre retornara o ID da linha inserida, ou seja, basta passar qualquer coisa diferente de **NULL** e a funcao requisitara o retorno.
+  - A operacao de retorno retorna um inteiro com o id da linha inserida ou uma string caso o tamanho do inteiro retornado seja maior que o inteiro maior possivel.
 
 -----
 
