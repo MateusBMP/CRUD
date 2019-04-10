@@ -19,8 +19,7 @@
         "psr-4": { "Crud\\": "src/src/class/" }
     },
     "require": {
-        "php": "^7.2",
-        "vlucas/phpdotenv": "^3.2"
+        "php": "^7.2"
     },
     "require-dev" : {
         "phpunit/phpunit": "^6.3"
