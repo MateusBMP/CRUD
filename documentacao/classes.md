@@ -131,6 +131,10 @@ A funcao retorna um array com arrays de linhas do banco de dados. Caso haja algu
 - _Observacao geral_:
   - Operadores tambem podem ser passados pelo seu nome literal. Desta forma, o interpretador ignorara a conversao e escrevera o nome literal.
 
+- _Observacao para pgsql_:
+  - Caso deseje chamar algum comando mais especifico nas colunas a serem listadas, e possivel fazer o mesmo apenas mudando o campo da coluna para o comando desejado. Por exemplo:
+    - ``SELECT distinct(nome), cpf, idade FROM pessoas`` == ``listar('pessoas', ['distinct(nome)', 'cpf', 'idade'])``
+
 -----
 
 #### inserir
