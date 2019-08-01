@@ -271,7 +271,7 @@ class Crud {
                 if($this->banco == 'mysql') {
                     return true;
                 } else if($this->banco == 'pgsql') {
-                    $string = "'".$retorno_campo."'";
+                    $string = $retorno_campo;
                     return $string;
                 }
             }
@@ -478,7 +478,7 @@ class Crud {
                     if(!$retorno) {
                         return false;
                     } else {
-                        return true;
+                        return $retorno;
                     }
                 }
             }
